@@ -27,6 +27,6 @@ double Mic::listen()
     }
 
     peakToPeak = signalMax - signalMin;
-    double volts = (peakToPeak * 5.0) / 1024;
+    double volts = ((peakToPeak * 3.3) / 1024) * 0.7074;
     return volts;
 }
