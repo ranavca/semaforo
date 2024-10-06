@@ -28,5 +28,6 @@ void setup()
 void loop()
 {
   double voltage = mic.listen();
-  Serial.println(voltage);
+  double spl = 20 * log10(voltage / 0.47);
+  Serial.println(spl);
 }
