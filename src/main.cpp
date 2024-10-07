@@ -41,11 +41,11 @@ void loop()
   Serial.println(voltage);
   double spl = (log10(voltage/0.00631)*20) + 25;
   allOff();
-  if(spl > 60) {
+  if(spl > 50) {
     yellowLed.on();
     return;
   }  
-  if(spl > 80) {
+  if(spl > 60) {
     redLed.on();
     return;
   }  
