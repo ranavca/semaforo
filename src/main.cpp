@@ -17,8 +17,9 @@ Led yellowLed = Led(YELLOW_LIGHT_PIN);
 
 Mic mic = Mic(AMP_PIN);
 
-void allOff() {
-   redLed.off();
+void allOff()
+{
+  redLed.off();
   greenLed.off();
   yellowLed.off();
 }
@@ -34,21 +35,20 @@ void setup()
 void loop()
 {
   double voltage = mic.listen();
-<<<<<<< HEAD
-  double spl = 20 * log10(voltage / 0.47);
-  Serial.println(spl);
-=======
-  Serial.println(voltage);
-  double spl = (log10(voltage/0.00631)*20) + 25;
+  double spl = (log10(voltage / 0.00631) * 20) + 25;
   allOff();
-  if(spl > 50) {
+  if (spl > 50 && spl < 60)
+  {
+    Serial.println("50");
     yellowLed.on();
     return;
-  }  
-  if(spl > 60) {
+  }
+  if (spl >= 60)
+  {
+    Serial.println("60");
     redLed.on();
     return;
-  }  
+  }
+  Serial.println("< 50");
   greenLed.on();
->>>>>>> 60e83527ff8cc8820198a9387fc9d30d8719f69b
 }
